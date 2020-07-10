@@ -55,9 +55,23 @@ const ages = users.find(function (user) {//04
 printKata(4, ages)
 
 //Find the first user in the array over the age of 38 who is active  05
-const activeOne = ages && isTrue
+/*const activeOne = {
+    array: isTrue,
+    answer: this.array.find(function (arrays) {
+        if (arrays.age > 38) {
+            return arrays.age
+        }
+    })
+}*/
 
+//const answer = isTrue
 
+/*const answer = isTrue.find(function (user) {
+    if (user.age > 38) {
+        return user.age
+    }
+})*/
+console.log(answer)
+//const activeOne = answer.find(ages)
 
-
-printKata(5, activeOne)
+printKata(5, answer)
