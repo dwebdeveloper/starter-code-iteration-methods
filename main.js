@@ -23,55 +23,81 @@ function printKata(kataNumber, object) {
     detailsElement.append(stringifiedObject)
 }
 
-const greenEyes1 = users.filter(user => user.eyeColor === "green")
+const greenEyes1 = users.filter(user => user.eyeColor === "green");
 // OR...
-const greenEyes2 = users.filter(function (user) {
+/*const greenEyes2 = users.filter(function (user) {
     return user.eyeColor === "green"
-})
-printKata(0, greenEyes2)
+})*/
+printKata(0, greenEyes1);
 
-const isTrue = users.filter(function (user) {//01
+//Lets begin!
+
+//Kata 1: Use the .filter() method
+//Filter the users array to show only the users with an isActive property of true.
+
+/*const isTrue = users.filter(function (user) {
     return user.isActive === true
-})
-printKata(1, isTrue)
+})*/
 
-const emails = users.map(function (user) {//02
+const isTrue = users.filter(user => user.isActive === true);
+
+printKata(1, isTrue);
+
+//Kata 2: Use the .map() method
+//Map over the users array to show only the email addresses of the users.
+
+/*const emails = users.map(function (user) {//02
     return user.email
-})
-printKata(2, emails)
+})*/
 
-const companys = users.some(function (user) {//03
+const emails = users.map(user => user.email);
+printKata(2, emails);
+
+//Kata 3: Use the .some() method
+//Check whether at least one user in the users array has a company property of "OVATION".
+
+/*const companys = users.some(function (user) {//03
     if (user.company === "OVATION") {
         return user.company
     }
-})
-printKata(3, companys)
+})*/
 
-const ages = users.find(function (user) {//04
-    if (user.age > 38) {
-        return user.age
-    }
-})
-printKata(4, ages)
+const companies = users.some(user => user.company === 'OVATION');
+printKata(3, companies);
 
-//Find the first user in the array over the age of 38 who is active  05
-/*const activeOne = {
-    array: isTrue,
-    answer: this.array.find(function (arrays) {
-        if (arrays.age > 38) {
-            return arrays.age
-        }
-    })
-}*/
+//Kata 4: Use the .find() method
+//Find the first user in the array over the age of 38.
 
-//const answer = isTrue
-
-/*const answer = isTrue.find(function (user) {
+/*const ages = users.find(function (user) {
     if (user.age > 38) {
         return user.age
     }
 })*/
-console.log(answer)
-//const activeOne = answer.find(ages)
+const ages = users.find(user => user.age > 38);
 
-printKata(5, answer)
+printKata(4, ages);
+
+//Kata 5: Use the .filter() and .find() methods
+//Find the first user in the array over the age of 38 who is active  05
+
+const merge = users
+    .filter(user => user.isActive === true)
+    .find(user => user.age > 38);
+printKata(5, merge);
+
+//Kata 6: Use the .filter() and .map() methods
+//Show the balance of every user in the array from the "ZENCO" company 
+
+const merge2 = users
+    .filter(user => user.company === 'ZENCO')
+    .map(user => user.balance)
+printKata(6, merge2);
+
+//Kata 7: Use the .filter() method with .includes() and the .map() method
+//Show the age of every user with the "fugiat" tag.
+const merge3 = users
+    .filter(user => user.tags === 'fugiat')
+    .map(user => user.age)
+    .includes(user => user.tags === 'fugiat');
+
+printKata(7, merge3);
